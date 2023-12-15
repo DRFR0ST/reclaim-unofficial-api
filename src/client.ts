@@ -3,6 +3,9 @@ import { ReclaimUsers } from "./modules/users";
 import { ReclaimCalendars } from "./modules/calendars";
 import { config } from "./config";
 
+/**
+ * A class for interacting with the Reclaim API.
+ */
 export class ReclaimClient {
   private accessToken = "";
 
@@ -13,18 +16,32 @@ export class ReclaimClient {
     this.accessToken = options?.accessToken || config.reclaim.accessToken!;
   }
 
+  /**
+   * @description Get the tasks module.
+   */
   get tasks() {
     return new ReclaimTasks(this);
   }
 
+  /**
+   * @description Get the users module.
+   */
   get users() {
     return new ReclaimUsers(this);
   }
 
+  /**
+   * @description Get the calendars module.
+   */
   get calendars() {
     return new ReclaimCalendars(this);
   }
 
+  /**
+   * @description A generic fetcher for the Reclaim API.
+   * @param endpoint
+   * @param options 
+   */
   async _fetcher(endpoint: string, options: RequestInit) {
     const opts = {
       ...options,
