@@ -1,4 +1,7 @@
-# 📅 Unofficial Reclaim.ai Node API
+# 📅 Unofficial Reclaim.ai API for Node.js
+
+[![npm version](https://badge.fury.io/js/reclaim-unofficial-api.svg)](https://www.npmjs.com/package/reclaim-unofficial-api)
+[![GitHub license](https://img.shields.io/github/license/DRFR0ST/reclaim-unofficial-api)](https://github.com/DRFR0ST/reclaim-unofficial-api/blob/main/LICENSE)
 
 Welcome to the unofficial Node.js API for Reclaim.ai! This library is designed to help you interact with the Reclaim.ai API in your Node.js applications. Please note that this library is not officially supported by Reclaim.ai and was reverse engineered for educational purposes.
 
@@ -12,11 +15,15 @@ npm install reclaim-unofficial-api
 
 Then, you can import the `ReclaimClient`` from the library:
 
-`import { ReclaimClient } from 'reclaim-unofficial-api';`
+```js
+import { ReclaimClient } from 'reclaim-unofficial-api';
+```
 
 You'll need to provide an access token either in the .env file or when creating a new `ReclaimClient` instance:
 
-`const client = new ReclaimClient({ accessToken: 'your-access-token' });`
+```js
+const client = new ReclaimClient({ accessToken: 'your-access-token' });
+```
 
 You can get an access token in the Reclaim.ai web app by going [here](https://app.reclaim.ai/settings/developer).
 
