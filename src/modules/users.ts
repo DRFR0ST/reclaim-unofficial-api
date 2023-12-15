@@ -25,12 +25,11 @@ export class ReclaimUsers {
     });
   }
 
-  async update(id: string, user: Partial<ReclaimUser>): Promise<ReclaimUser> {
+  async update(metadata: Partial<ReclaimUser['metadata']>): Promise<ReclaimUser> {
     return await this.client._fetcher(`${this.path}/current`, {
       method: "PATCH",
       body: JSON.stringify({
-        id, 
-        metadata: user
+        metadata: metadata
       }),
     });
   }
