@@ -1,4 +1,4 @@
-import { ReclaimTaskCreate } from "../src/interfaces";
+import { ReclaimTaskCreate } from "../src";
 
 export const ReclaimTaskCreateMock: ReclaimTaskCreate = Object.freeze({
   title: "Test Task 1",

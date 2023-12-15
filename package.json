@@ -2,6 +2,7 @@
   "name": "reclaim-unofficial-api",
   "module": "src/index.ts",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "version": "1.0.0-alpha.1",
   "description": "An unofficial API for Reclaim.ai",
   "author": "Mike Eling <mike.eling97@gmail.com>",
@@ -9,15 +10,24 @@
   "license": "MIT",
   "scripts": {
     "dev": "bun --watch src/index.ts",
-    "build": "bun build src/index.ts --outdir dist --minify --sourcemap --target node --splitting",
+    "build": "bun run clean && bun run build:library && bun run build:declaration",
+    "build:library": "bun build src/index.ts --outdir dist --minify --splitting --sourcemap --target node",
+    "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
+    "clean": "rimraf dist",
+    "postbuild": "rimraf tsconfig.types.tsbuildinfo",
     "test": "bun test --coverage",
     "example": "bun run ./example/index.ts",
     "prepublish": "bun run build"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "rimraf": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  }
+  },
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts"
+  ]
 }

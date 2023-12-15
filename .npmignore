@@ -6,3 +6,4 @@
 !README.md
 !LICENSE
 !dist/**/*
+!tsconfig.json

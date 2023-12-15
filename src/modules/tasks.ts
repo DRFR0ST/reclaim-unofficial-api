@@ -2,7 +2,7 @@ import {
   ReclaimEndpoints,
   ReclaimTask,
   ReclaimTaskCreate,
-} from "../interfaces";
+} from "../types";
 import { ReclaimClient } from "../client";
 import { filterArray } from "../utils";
 

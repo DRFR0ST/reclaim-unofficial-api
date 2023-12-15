@@ -56,9 +56,7 @@ export class ReclaimClient {
         `${config.reclaim.apiUrl}/api/${endpoint}`,
         opts
       );
-      const json = await response.json();
-
-      return json;
+      return await response.json();
     } catch (err) {
       console.error(err);
       throw new Error("Error fetching data from Reclaim API.");

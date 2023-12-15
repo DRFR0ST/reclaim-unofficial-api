@@ -1,7 +1,7 @@
 import {
   ReclaimEndpoints,
   ReclaimUser,
-} from "../interfaces";
+} from "../types";
 import { ReclaimClient } from "../client";
 
 /**
