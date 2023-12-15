@@ -30,9 +30,9 @@ You can get an access token in the Reclaim.ai web app by going [here](https://ap
 ## 📚 API
 The `ReclaimClient` provides access to various modules:
 
-`client.tasks`: Interact with tasks in Reclaim.ai.
-`client.users`: Interact with users in Reclaim.ai.
-`client.calendars`: Interact with calendars in Reclaim.ai.
+- `client.tasks`: Interact with tasks in Reclaim.ai.
+- `client.users`: Interact with users in Reclaim.ai.
+- `client.calendars`: Interact with calendars in Reclaim.ai.
 Each module provides methods for interacting with the respective resources in the Reclaim.ai API.
 
 ### Tasks
