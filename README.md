@@ -76,28 +76,25 @@ const tasks = await client.tasks.search({ title: 'My Ticket' });
 ### Create task
 ```js
 const task = await client.tasks.create({
-  title: 'My Ticket',
-  description: 'This is my ticket.',
-  dueDate: '2021-01-01T00:00:00.000Z',
-  priority: 'high',
-  status: 'open',
-  assignee: 'user-id',
-  calendar: 'calendar-id',
-  tags: ['tag-id'],
+  title: "My Ticket",
+  eventColor: null,
+  eventCategory: "WORK",
+  timeChunksRequired: 8,
+  minChunkSize: 4,
+  maxChunkSize: 8,
+  alwaysPrivate: true,
+  timeSchemeId: "989b3027-46c4-4729-bdec-1070fc4d8c0f",
+  priority: "P2",
+  snoozeUntil: "2029-11-17T06:00:00.000Z",
+  due: "2029-11-21T16:30:00.000Z",
+  onDeck: false,
 });
 ```
 
 ### Update task
 ```js
 const task = await client.tasks.update(12345, {
-  title: 'My Ticket',
-  description: 'This is my ticket.',
-  dueDate: '2021-01-01T00:00:00.000Z',
-  priority: 'high',
-  status: 'open',
-  assignee: 'user-id',
-  calendar: 'calendar-id',
-  tags: ['tag-id'],
+  title: "My Updated Ticket",
 });
 ```
 
