@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "bun --watch src/index.ts",
     "build": "bun build src/index.ts --outdir dist --minify --sourcemap --target node --splitting",
-    "example": "bun run ./example/index.ts"
+    "test": "bun test",
+    "example": "bun run ./example/index.ts",
+    "prepublish": "bun run build"
   },
   "devDependencies": {
     "bun-types": "latest"
