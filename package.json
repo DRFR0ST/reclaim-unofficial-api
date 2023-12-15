@@ -1,6 +1,6 @@
 {
   "name": "reclaim-unofficial-api",
-  "module": "src/index.ts",
+  "module": "dist/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "version": "1.0.0-alpha.5",
@@ -10,11 +10,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "bun --watch src/index.ts",
-    "build": "bun run clean && bun run build:library && bun run build:declaration",
-    "build:library": "bun build src/index.ts --outdir dist --minify --splitting --sourcemap --target node",
-    "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
+    "build": "bun run clean && tsc --project tsconfig.json",
     "clean": "rimraf dist",
-    "postbuild": "rimraf tsconfig.types.tsbuildinfo",
+    "postbuild": "rimraf tsconfig.tsbuildinfo",
     "test": "bun test --coverage",
     "example": "bun run ./example/index.ts",
     "prepublish": "bun run build"

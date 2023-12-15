@@ -3,11 +3,12 @@
     "lib": ["ESNext"],
     "module": "esnext",
     "target": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "moduleDetection": "force",
     "outDir": "dist",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
+    "rootDir": "src",
+    "noEmit": false,
+    "declaration": true,
     "composite": true,
     "strict": true,
     "downlevelIteration": true,
@@ -19,5 +20,7 @@
     "types": [
       "bun-types" // add Bun global
     ]
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "tests", "example"]
 }

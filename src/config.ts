@@ -1,6 +1,6 @@
 
 const RECLAIM_API_URL = "https://api.app.reclaim.ai";
-const RECLAIM_ACCESS_TOKEN = process.env.RECLAIM_ACCESS_TOKEN;
+const RECLAIM_ACCESS_TOKEN = process?.env?.RECLAIM_ACCESS_TOKEN;
 
 /**
  * @description Configuration for the Reclaim API client.
