@@ -1,2 +1,8 @@
-example
-.env
+# Ignore all files by default
+*
+
+# Include necessary files
+!package.json
+!README.md
+!LICENSE
+!dist/**/*
