@@ -78,11 +78,23 @@ const getCurrentUserExample = async () => {
     return user;
 }
 
+const updateCurrentUserExample = async () => {
+    console.log("Update current user =>");
+
+    const updatedUser = await client.users.update({ companyName: "Assembless" });
+
+    console.log(updatedUser, "\n\n");
+    console.log(updatedUser.metadata.companyName)
+
+    return updatedUser;
+}
+
 // This is an example of how to use the ReclaimClient class.
 const main = async () => {
     console.clear();
-
+    
     await getCurrentUserExample();
+    await updateCurrentUserExample();
 
     const createdTask = await createTaskExample();
     const taskId = createdTask.id;
