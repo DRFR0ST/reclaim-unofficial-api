@@ -20,4 +20,17 @@ describe('ReclaimUsers', () => {
     expect(results).toBeTruthy();
     expect(results.id).toBeString();
   });
+
+  test('should update the current user\'s metadata', async () => {
+    const res1 = await users.update({ companyName: "Priv." });
+    
+    expect(res1).toBeTruthy();
+    expect(res1.metadata.companyName).toBe("Priv.");
+
+    // Reset the company name
+    const res2 = await users.update({ companyName: "Assembless" });
+
+    expect(res2).toBeTruthy();
+    expect(res2.metadata.companyName).toBe("Assembless");
+  });
 });

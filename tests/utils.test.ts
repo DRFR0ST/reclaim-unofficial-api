@@ -1,4 +1,4 @@
-import { expect, test, beforeEach, describe } from "bun:test";
+import { expect, test, describe } from "bun:test";
 import { filterArray } from "../src/utils";
 
 describe('Utils', () => {
