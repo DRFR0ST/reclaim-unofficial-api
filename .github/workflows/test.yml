@@ -1,0 +1,27 @@
+name: 🧪 Run Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *'  # Run every day at midnight to ensure the reverse engineered API is up to date.
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Bun
+      run: |
+        curl -LSfs https://bun.fyi/release/latest | sh
+        echo "$HOME/.bun/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: bun install
+
+    - name: Run tests
+      run: bun run test
