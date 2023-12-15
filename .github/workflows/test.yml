@@ -21,6 +21,10 @@ jobs:
 
     - name: Run tests
       run: bun run test
+      env:
+        RECLAIM_ACCESS_TOKEN: ${{ secrets.RECLAIM_ACCESS_TOKEN }}
     
     - name: Build library
       run: bun run build
+      env:
+        RECLAIM_ACCESS_TOKEN: ${{ secrets.RECLAIM_ACCESS_TOKEN }}
