@@ -20,6 +20,11 @@ jobs:
         env:
           RECLAIM_ACCESS_TOKEN: ${{ secrets.RECLAIM_ACCESS_TOKEN }}
 
+      - name: Build library
+        run: bun run build
+        env:
+          RECLAIM_ACCESS_TOKEN: ${{ secrets.RECLAIM_ACCESS_TOKEN }}
+
       - name: Publish
         run: npm publish
         env:
@@ -32,7 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
           draft: false
           prerelease: false
