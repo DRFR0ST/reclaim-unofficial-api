@@ -14,6 +14,7 @@
     "clean": "rimraf dist",
     "postbuild": "rimraf tsconfig.tsbuildinfo",
     "test": "bun test --coverage",
+    "test:update": "bun test --coverage --update-snapshots",
     "example": "bun run ./example/index.ts",
     "prepublish": "bun run build"
   },
