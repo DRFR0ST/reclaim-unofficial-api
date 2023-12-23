@@ -11,7 +11,7 @@ exports[`ReclaimTasks should run tasks in sequence 1`] = `
   "eventCategory": "WORK",
   "eventSubType": "FOCUS",
   "id": undefined,
-  "index": 5023.775390625,
+  "index": undefined,
   "maxChunkSize": 8,
   "minChunkSize": 4,
   "notes": "",

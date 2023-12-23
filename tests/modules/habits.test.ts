@@ -25,7 +25,7 @@ describe("ReclaimHabits", () => {
     expect(createResults.id).toBeGreaterThan(0);
 
     // Create a snapshot of the createResults object
-    const createSnapshot = { ...createResults, id: undefined, created: undefined, updated: undefined };
+    const createSnapshot = { ...createResults, id: undefined, created: undefined, updated: undefined, index: undefined };
     expect(createSnapshot).toMatchSnapshot();
 
     // Test habit search

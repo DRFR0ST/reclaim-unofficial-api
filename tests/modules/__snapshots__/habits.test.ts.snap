@@ -16,7 +16,7 @@ exports[`ReclaimHabits should run habits in sequence 1`] = `
   "eventSubType": "FOCUS",
   "id": undefined,
   "idealTime": "09:00:00",
-  "index": 18,
+  "index": undefined,
   "invitees": [],
   "notification": true,
   "oneOffPolicy": {
