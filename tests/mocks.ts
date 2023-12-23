@@ -1,7 +1,7 @@
 import { ReclaimTaskCreate } from "../src/types";
 
 export const ReclaimTaskCreateMock: ReclaimTaskCreate = Object.freeze({
-  title: "Test Task 1",
+  title: "Funky Imitation Game",
   eventColor: null,
   eventCategory: "WORK",
   timeChunksRequired: 8,
@@ -13,4 +13,8 @@ export const ReclaimTaskCreateMock: ReclaimTaskCreate = Object.freeze({
   snoozeUntil: "2029-11-17T06:00:00.000Z",
   due: "2029-11-21T16:30:00.000Z",
   onDeck: false,
+});
+
+export const ReclaimTaskUpdateMock: Partial<ReclaimTaskCreate> = Object.freeze({
+  title: "Indistinguishable Turing Test",
 });

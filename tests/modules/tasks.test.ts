@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test } from "bun:test";
 import { ReclaimClient } from "../../src";
 import { ReclaimTasks } from "../../src/modules/tasks";
-import { ReclaimTaskCreateMock } from "../mocks";
+import { ReclaimTaskCreateMock, ReclaimTaskUpdateMock } from "../mocks";
 
 describe("ReclaimTasks", () => {
   let tasks: ReclaimTasks;
@@ -37,15 +37,20 @@ describe("ReclaimTasks", () => {
     expect(filterResults[0].title).toBe(ReclaimTaskCreateMock.title);
   
     // Test task update
-    const updateResults = await tasks.update(createResults.id, { title: "Updated Test Task 1" });
+    const updateResults = await tasks.update(createResults.id, ReclaimTaskUpdateMock);
     expect(updateResults).toBeTruthy();
     expect(updateResults.id).toBe(updateResults.id);
-    expect(updateResults.title).toBe("Updated Test Task 1");
+    expect(updateResults.title).toBe(ReclaimTaskUpdateMock.title);
   
     // Test task get
     const getResults = await tasks.get(createResults.id);
     expect(getResults).toBeTruthy();
     expect(getResults.id).toBe(createResults.id);
+
+    // Test task mark as done
+    const markAsDoneResults = await tasks.markDone(createResults.id);
+    expect(markAsDoneResults).toBeTruthy();
+    expect(markAsDoneResults.taskOrHabit.id).toBe(createResults.id);
   
     // Test task delete
     const deleteResults = await tasks.delete(createResults.id);

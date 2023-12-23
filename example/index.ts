@@ -4,10 +4,10 @@ import { ReclaimClient } from "../src";
 const client = new ReclaimClient();
 
 const createTaskExample = async () => {    
-    console.log("Create a task =>");
+    console.log("\n\nCreate a task =>\n");
 
     const newTask = await client.tasks.create({
-        "title": "Test",
+        "title": "Funky Imitation Game",
         "eventColor": null,
         "eventCategory": "WORK",
         "timeChunksRequired": 4,
@@ -21,72 +21,65 @@ const createTaskExample = async () => {
         "onDeck": false
     });
 
-    console.log(newTask, "\n\n");
-
     return newTask;
 }
 
 const searchTasksExample = async () => {
-    console.log("Search tasks =>");
+    console.log("\n\nSearch tasks =>\n");
 
-    const tasks = await client.tasks.search({title: "Test"});
-
-    console.log(tasks, "\n\n");
+    const tasks = await client.tasks.search({title: "Funky Imitation Game"});
 
     return tasks;
 }
 
 const updateTaskExample = async (taskId: number) => {
-    console.log("Update a task =>");
+    console.log("\n\nUpdate a task =>\n");
 
     const updatedTask = await client.tasks.update(taskId, {
-        "title": "Test 2",
+        "title": "Indistinguishable Turing Test",
     });
-
-    console.log(updatedTask, "\n\n");
 
     return updatedTask;
 }
 
 const getTaskExample = async (taskId: number) => {
-    console.log("Get a task =>");
+    console.log("\n\nGet a task =>\n");
 
     const task = await client.tasks.get(taskId);
-
-    console.log(task, "\n\n");
 
     return task;
 }
 
 const deleteTaskExample = async (taskId: number) => {
-    console.log("Delete a task =>");
+    console.log("\n\nDelete a task =>\n");
 
     const deletedTask = await client.tasks.delete(taskId);
-
-    console.log(deletedTask, "\n\n");
 
     return deletedTask;
 }
 
 const getCurrentUserExample = async () => {
-    console.log("Get current user =>");
+    console.log("\n\nGet current user =>\n");
 
     const user = await client.users.current();
-
-    console.log(user, "\n\n");
 
     return user;
 }
 
 const updateCurrentUserExample = async () => {
-    console.log("Update current user =>");
+    console.log("\n\nUpdate current user =>\n");
 
     const updatedUser = await client.users.update({ companyName: "Assembless" });
 
-    console.log(updatedUser, "\n\n");
-    console.log(updatedUser.metadata.companyName)
-
     return updatedUser;
+}
+
+const markTaskAsDoneExample = async (taskId: number) => {
+    console.log("\n\nMark task as done =>\n");
+
+    const doneTask = await client.tasks.markDone(taskId);
+
+    return doneTask;
 }
 
 // This is an example of how to use the ReclaimClient class.
@@ -102,6 +95,7 @@ const main = async () => {
     await searchTasksExample();
     await updateTaskExample(taskId);
     await getTaskExample(taskId);
+    await markTaskAsDoneExample(taskId);
     await deleteTaskExample(taskId);
 }
 

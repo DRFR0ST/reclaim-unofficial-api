@@ -40,7 +40,7 @@ export class ReclaimClient {
   /**
    * @description A generic fetcher for the Reclaim API.
    * @param endpoint
-   * @param options 
+   * @param options
    */
   async _fetcher(endpoint: string, options: RequestInit) {
     const opts = {
@@ -56,10 +56,25 @@ export class ReclaimClient {
         `${config.reclaim.apiUrl}/api/${endpoint}`,
         opts
       );
+
+      this.verbose(
+        `[${endpoint}] (${response.status})`,
+        `Response from Reclaim API`,
+        response
+      );
+
       return await response.json();
     } catch (err) {
       console.error(err);
       throw new Error("Error fetching data from Reclaim API.");
     }
+  }
+
+  /**
+   * @description A verbose logger.
+   * @param args
+   */
+  verbose(...args: any[]) {
+    if (config.verbose) console.log(...args);
   }
 }

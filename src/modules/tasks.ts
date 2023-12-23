@@ -79,4 +79,14 @@ export class ReclaimTasks {
       method: "DELETE",
     });
   }
+
+  /**
+   * @description Mark a task as done.
+   * @param id The ID of the task to mark as done.
+   */
+  async markDone(id: number): Promise<{ taskOrHabit: ReclaimTask, events: unknown[] }> {
+    return await this.client._fetcher(`${ReclaimEndpoints.Planner}/done/task/${id}`, {
+      method: "POST",
+    });
+  }
 }

@@ -1,5 +1,6 @@
 export enum ReclaimEndpoints {
   Tasks = "tasks",
+  Planner = "planner",
   Users = "users",
   Calendars = "calendars",
 }
