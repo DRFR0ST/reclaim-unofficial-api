@@ -1,6 +1,7 @@
 export enum ReclaimEndpoints {
   Tasks = "tasks",
   Habits = "assist/habits/daily",
+  Analytics = "analytics/user/V3",
   Planner = "planner",
   Users = "users",
   Calendars = "calendars",
@@ -93,11 +94,14 @@ export interface ReclaimHabit {
   notification: boolean;
   timePolicyType: string;
   oneOffPolicy: {
-    dayHours: Record<WeekDays, {
-      intervals: Array<{ start: string; end: string; duration?: number }>;
-      startOfDay?: string;
-      endOfDay?: string;
-    }>;
+    dayHours: Record<
+      WeekDays,
+      {
+        intervals: Array<{ start: string; end: string; duration?: number }>;
+        startOfDay?: string;
+        endOfDay?: string;
+      }
+    >;
     startOfWeek?: string;
     endOfWeek?: string;
   };
@@ -135,7 +139,7 @@ export type ReclaimHabitCreate = Pick<
   | "timeSchemeId"
   | "timesPerPeriod"
   | "title"
-  >;
+>;
 
 /**
  * An interface representing a Reclaim user.
@@ -590,8 +594,83 @@ export interface ReclaimUser {
  * An interface representing a Reclaim calendar.
  * Warning: This interface was reverse engineered from the Reclaim API and may be incomplete.
  */
+export interface ReclaimAnalytics {
+  status: string;
+  result: {
+    metrics: {
+      "@type": string;
+      type: string;
+      unit: string;
+      description: string;
+      appendixKeys: {
+        [key: string]: string[];
+      };
+      noData: boolean;
+      value?: number;
+      values?: {
+        key: string;
+        value: number;
+      }[];
+      metrics?: {
+        name: string;
+        metric: {
+          "@type": string;
+          type: string;
+          unit: string;
+          description: string;
+          appendixKeys: {
+            [key: string]: string[];
+          };
+          noData: boolean;
+          value: number;
+        };
+      }[];
+    }[];
+    appendix: {
+      teamSize: number;
+    };
+  };
+}
+
+/**
+ * A type representing the query parameters for the Reclaim analytics endpoint.
+ */
+export type ReclaimAnalyticsGetPayload = {
+  start?: string;
+  end?: string;
+  // TODO: Add strict metric name validation.
+  metricName?: ReclaimAnalyticsMetricName[];
+  groupingInterval?: "DAILY" | "WEEKLY" | "MONTHLY";
+};
+
+/**
+ * A type representing the metric names that can be used when getting analytics.
+ */
+export type ReclaimAnalyticsMetricName =
+  | "DURATION_BY_CATEGORY"
+  | "DURATION_BY_DATE_BY_CATEGORY"
+  | "FOCUS_TIME_DURATION_BY_DAY_OF_WEEK"
+  | "MEETING_CALLOUT_GROUP"
+  | "MEETING_TIME_DURATION_BY_DAY_OF_WEEK"
+  | "PERSONAL_HABITS_AND_TASKS_DURATION_BY_DATE_BY_NAME"
+  | "ROI_CALLOUT_GROUP"
+  | "TIME_WITH_PEOPLE_DURATION_BY_PERSON"
+  | "WORK_HABITS_AND_TASKS_DURATION_BY_DATE_BY_NAME"
+  | "WORK_LIFE_CALLOUT_GROUP";
+
+/**
+ * An interface representing a Reclaim calendar.
+ * Warning: This interface was reverse engineered from the Reclaim API and may be incomplete.
+ */
 export interface ReclaimCalendar {
   id: number;
 }
 
-export type WeekDays = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
+export type WeekDays =
+  | "SUNDAY"
+  | "MONDAY"
+  | "TUESDAY"
+  | "WEDNESDAY"
+  | "THURSDAY"
+  | "FRIDAY"
+  | "SATURDAY";

@@ -1,0 +1,44 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReclaimAnalytics should get the user's analytics for a specific timespan 1`] = `
+[
+  {
+    "metric": {
+      "@type": "AnalyticsDurationByCategoryMetric",
+      "appendixKeys": {},
+      "bucket": "ANALYTICS_CATEGORY",
+      "description": "Duration by category",
+      "noData": false,
+      "type": "durationByCategory",
+      "unit": "DURATION_MINUTES",
+      "values": [
+        {
+          "key": "TEAM_MEETING",
+          "value": 0,
+        },
+        {
+          "key": "EXTERNAL_MEETING",
+          "value": 17,
+        },
+        {
+          "key": "ONE_ON_ONE",
+          "value": 14,
+        },
+        {
+          "key": "BREAK",
+          "value": 5,
+        },
+        {
+          "key": "DEEP_WORK",
+          "value": 62,
+        },
+        {
+          "key": "SHALLOW_WORK",
+          "value": 30,
+        },
+      ],
+    },
+    "name": "DURATION_BY_CATEGORY",
+  },
+]
+`;
