@@ -34,6 +34,7 @@ The `ReclaimClient` provides access to various modules:
 - `client.habits`: Interact with habits in Reclaim.ai.
 - `client.users`: Interact with users in Reclaim.ai.
 - `client.calendars`: Interact with calendars in Reclaim.ai.
+- `client.analytics`: Interact with analytics in Reclaim.ai.
 
 Each module provides methods for interacting with the respective resources in the Reclaim.ai API.
 
@@ -71,6 +72,11 @@ Method | Description | Status
 --- | --- | ---
 `primary` | Get the primary calendar. | ✅
 
+### Analytics
+
+Method | Description | Status
+--- | --- | ---
+`get` | Get analytics. | ✅
 
 More methods will be added in the future. If you need a specific method, please open an issue or submit a pull request!
 
@@ -114,6 +120,11 @@ const task = await client.tasks.update(12345, {
 ### Delete task
 ```js
 const task = await client.tasks.delete(12345);
+```
+
+### Get analytics
+```js
+const analytics = await client.analytics.get({ start: "2021-01-01", end: "2021-01-31", metricName: [ "DURATION_BY_CATEGORY", "DURATION_BY_DATE_BY_CATEGORY" ] });
 ```
 
 ### Get current user

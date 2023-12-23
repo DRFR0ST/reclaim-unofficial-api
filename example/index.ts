@@ -1,139 +1,162 @@
 import { ReclaimClient } from "../src";
-import { ReclaimHabitCreateMock, ReclaimHabitUpdateMock, ReclaimTaskCreateMock, ReclaimTaskUpdateMock } from "../tests/mocks";
+import {
+  ReclaimHabitCreateMock,
+  ReclaimHabitUpdateMock,
+  ReclaimTaskCreateMock,
+  ReclaimTaskUpdateMock,
+} from "../tests/mocks";
 
 // Create a new ReclaimClient instance.
 const client = new ReclaimClient();
 
-const createTaskExample = async () => {    
-    console.log("\n\nCreate a task =>\n");
+const createTaskExample = async () => {
+  console.log("\n\nCreate a task =>\n");
 
-    const newTask = await client.tasks.create(ReclaimTaskCreateMock);
+  const newTask = await client.tasks.create(ReclaimTaskCreateMock);
 
-    return newTask;
-}
+  return newTask;
+};
 
 const searchTasksExample = async () => {
-    console.log("\n\nSearch tasks =>\n");
+  console.log("\n\nSearch tasks =>\n");
 
-    const tasks = await client.tasks.search({title: "Funky Imitation Game"});
+  const tasks = await client.tasks.search({ title: "Funky Imitation Game" });
 
-    return tasks;
-}
+  return tasks;
+};
 
 const updateTaskExample = async (taskId: number) => {
-    console.log("\n\nUpdate a task =>\n");
+  console.log("\n\nUpdate a task =>\n");
 
-    const updatedTask = await client.tasks.update(taskId, ReclaimTaskUpdateMock);
+  const updatedTask = await client.tasks.update(taskId, ReclaimTaskUpdateMock);
 
-    return updatedTask;
-}
+  return updatedTask;
+};
 
 const getTaskExample = async (taskId: number) => {
-    console.log("\n\nGet a task =>\n");
+  console.log("\n\nGet a task =>\n");
 
-    const task = await client.tasks.get(taskId);
+  const task = await client.tasks.get(taskId);
 
-    return task;
-}
+  return task;
+};
 
 const deleteTaskExample = async (taskId: number) => {
-    console.log("\n\nDelete a task =>\n");
+  console.log("\n\nDelete a task =>\n");
 
-    const deletedTask = await client.tasks.delete(taskId);
+  const deletedTask = await client.tasks.delete(taskId);
 
-    return deletedTask;
-}
+  return deletedTask;
+};
 
 const getCurrentUserExample = async () => {
-    console.log("\n\nGet current user =>\n");
+  console.log("\n\nGet current user =>\n");
 
-    const user = await client.users.current();
+  const user = await client.users.current();
 
-    return user;
-}
+  return user;
+};
 
 const updateCurrentUserExample = async () => {
-    console.log("\n\nUpdate current user =>\n");
+  console.log("\n\nUpdate current user =>\n");
 
-    const updatedUser = await client.users.update({ companyName: "Assembless" });
+  const updatedUser = await client.users.update({ companyName: "Assembless" });
 
-    return updatedUser;
-}
+  return updatedUser;
+};
 
 const markTaskAsDoneExample = async (taskId: number) => {
-    console.log("\n\nMark task as done =>\n");
+  console.log("\n\nMark task as done =>\n");
 
-    const doneTask = await client.tasks.markDone(taskId);
+  const doneTask = await client.tasks.markDone(taskId);
 
-    return doneTask;
-}
+  return doneTask;
+};
 
 const createHabitExample = async () => {
-    console.log("\n\nCreate a habit =>\n");
+  console.log("\n\nCreate a habit =>\n");
 
-    const newHabit = await client.habits.create(ReclaimHabitCreateMock);
- 
-    return newHabit;
-}
+  const newHabit = await client.habits.create(ReclaimHabitCreateMock);
+
+  return newHabit;
+};
 
 const updateHabitExample = async (habitId: number) => {
-    console.log("\n\nUpdate a habit =>\n");
+  console.log("\n\nUpdate a habit =>\n");
 
-    const updatedHabit = await client.habits.update(habitId, ReclaimHabitUpdateMock);
+  const updatedHabit = await client.habits.update(
+    habitId,
+    ReclaimHabitUpdateMock
+  );
 
-    return updatedHabit;
-}
+  return updatedHabit;
+};
 
 const searchHabitsExample = async () => {
-    console.log("\n\nSearch habits =>\n");
+  console.log("\n\nSearch habits =>\n");
 
-    const habits = await client.habits.search({ title: ReclaimHabitCreateMock.title });
+  const habits = await client.habits.search({
+    title: ReclaimHabitCreateMock.title,
+  });
 
-    return habits;
-}
+  return habits;
+};
 
 const getHabitExample = async (habitId: number) => {
-    console.log("\n\nGet a habit =>\n");
+  console.log("\n\nGet a habit =>\n");
 
-    const habit = await client.habits.get(habitId);
+  const habit = await client.habits.get(habitId);
 
-    return habit;
-}
+  return habit;
+};
 
 const deleteHabitExample = async (habitId: number) => {
-    console.log("\n\nDelete a habit =>\n");
+  console.log("\n\nDelete a habit =>\n");
 
-    const deletedHabit = await client.habits.delete(habitId);
+  const deletedHabit = await client.habits.delete(habitId);
 
-    return deletedHabit;
-}
+  return deletedHabit;
+};
+
+const getAnalyticsExample = async () => {
+  console.log("\n\nGet analytics =>\n");
+
+  const analytics = await client.analytics.get({
+    start: "2023-11-01",
+    end: "2023-11-30",
+    metricName: ["DURATION_BY_CATEGORY"],
+  });
+
+  return analytics;
+};
 
 // This is an example of how to use the ReclaimClient class.
 const main = async () => {
-    console.clear();
-    
-    await getCurrentUserExample();
-    await updateCurrentUserExample();
+  console.clear();
 
-    const createdTask = await createTaskExample();
-    const taskId = createdTask.id;
+  await getCurrentUserExample();
+  await updateCurrentUserExample();
+  await getAnalyticsExample();
 
-    await searchTasksExample();
-    await updateTaskExample(taskId);
-    await getTaskExample(taskId);
-    await markTaskAsDoneExample(taskId);
-    await deleteTaskExample(taskId);
+  const createdTask = await createTaskExample();
+  const taskId = createdTask.id;
 
-    const createdHabit = await createHabitExample();
-    const habitId = createdHabit.id;
+  await searchTasksExample();
+  await updateTaskExample(taskId);
+  await getTaskExample(taskId);
+  await markTaskAsDoneExample(taskId);
+  await deleteTaskExample(taskId);
 
-    await searchHabitsExample();
+  const createdHabit = await createHabitExample();
+  const habitId = createdHabit.id;
 
-    await updateHabitExample(habitId);
+  await searchHabitsExample();
 
-    await getHabitExample(habitId);
+  await updateHabitExample(habitId);
 
-    await deleteHabitExample(habitId);
-}
+  await getHabitExample(habitId);
+
+  await deleteHabitExample(habitId);
+};
 
 main();
