@@ -34,6 +34,7 @@ The `ReclaimClient` provides access to various modules:
 - `client.habits`: Interact with habits in Reclaim.ai.
 - `client.users`: Interact with users in Reclaim.ai.
 - `client.calendars`: Interact with calendars in Reclaim.ai.
+
 Each module provides methods for interacting with the respective resources in the Reclaim.ai API.
 
 ### Tasks
