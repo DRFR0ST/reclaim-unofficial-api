@@ -1,6 +1,6 @@
 import {
   ReclaimEndpoints,
-  ReclaimAnalytics,
+  ReclaimAnalytics as ReclaimAnalyticsType,
   ReclaimAnalyticsGetPayload,
   ReclaimAnalyticsMetricName,
 } from "../types";
@@ -42,7 +42,7 @@ export class ReclaimAnalytics {
     end,
     metricName,
     groupingInterval,
-  }: ReclaimAnalyticsGetPayload = {}): Promise<ReclaimAnalytics> {
+  }: ReclaimAnalyticsGetPayload = {}): Promise<ReclaimAnalyticsType> {
     // Set the start and end dates to the last 7 days and the next 7 days, respectively. Format YYYY-MM-DD.
     if (!start)
       start = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
