@@ -125,6 +125,8 @@ Check out the [examples](https://github.com/DRFR0ST/reclaim-unofficial-api/blob/
 ## ⚠️ Disclaimer
 This library was reverse engineered from the Reclaim.ai API and may be incomplete or inaccurate. Use at your own risk.
 
+Every 12 hours a Github Action runs to test the library against the Reclaim.ai API. If the tests fail, the library may be out of date. Please open an issue or submit a pull request if you notice any issues. Thanks!
+
 ## 🙏 Acknowledgements
 Big thanks to the author of the [reclaim-sdk](https://github.com/llabusch93/reclaim-sdk/tree/master) Python library for reverse engineering the Reclaim.ai API — your work inspired this library! 🚀
 
