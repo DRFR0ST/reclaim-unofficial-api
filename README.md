@@ -31,6 +31,7 @@ You can get an access token in the Reclaim.ai web app by going [here](https://ap
 The `ReclaimClient` provides access to various modules:
 
 - `client.tasks`: Interact with tasks in Reclaim.ai.
+- `client.habits`: Interact with habits in Reclaim.ai.
 - `client.users`: Interact with users in Reclaim.ai.
 - `client.calendars`: Interact with calendars in Reclaim.ai.
 Each module provides methods for interacting with the respective resources in the Reclaim.ai API.
@@ -41,9 +42,20 @@ Method | Description | Status
 --- | --- | ---
 `search` | Search for tasks. | ✅
 `create` | Create a new task. | ✅
+`get` | Get an existing task. | ✅
 `update` | Update an existing task. | ✅
 `delete` | Delete an existing task. | ✅
-`markComplete` | Mark a task as complete. | ⌛
+`markComplete` | Mark a task as complete. | ✅
+
+### Habits
+
+Method | Description | Status
+--- | --- | ---
+`search` | Search for habits. | ✅
+`create` | Create a new habit. | ✅
+`get` | Get an existing habit. | ✅
+`update` | Update an existing habit. | ✅
+`delete` | Delete an existing habit. | ✅
 
 ### Users
 
