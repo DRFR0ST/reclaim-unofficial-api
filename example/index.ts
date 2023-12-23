@@ -1,4 +1,5 @@
 import { ReclaimClient } from "../src";
+import { ReclaimHabitCreateMock, ReclaimHabitUpdateMock, ReclaimTaskCreateMock, ReclaimTaskUpdateMock } from "../tests/mocks";
 
 // Create a new ReclaimClient instance.
 const client = new ReclaimClient();
@@ -6,20 +7,7 @@ const client = new ReclaimClient();
 const createTaskExample = async () => {    
     console.log("\n\nCreate a task =>\n");
 
-    const newTask = await client.tasks.create({
-        "title": "Funky Imitation Game",
-        "eventColor": null,
-        "eventCategory": "WORK",
-        "timeChunksRequired": 4,
-        "minChunkSize": 4,
-        "maxChunkSize": 8,
-        "alwaysPrivate": true,
-        "timeSchemeId": "989b3027-46c4-4729-bdec-1070fc4d8c0f",
-        "priority": "P2",
-        "snoozeUntil": null,
-        "due": "2023-12-17T16:00:00.000Z",
-        "onDeck": false
-    });
+    const newTask = await client.tasks.create(ReclaimTaskCreateMock);
 
     return newTask;
 }
@@ -35,9 +23,7 @@ const searchTasksExample = async () => {
 const updateTaskExample = async (taskId: number) => {
     console.log("\n\nUpdate a task =>\n");
 
-    const updatedTask = await client.tasks.update(taskId, {
-        "title": "Indistinguishable Turing Test",
-    });
+    const updatedTask = await client.tasks.update(taskId, ReclaimTaskUpdateMock);
 
     return updatedTask;
 }
@@ -82,6 +68,46 @@ const markTaskAsDoneExample = async (taskId: number) => {
     return doneTask;
 }
 
+const createHabitExample = async () => {
+    console.log("\n\nCreate a habit =>\n");
+
+    const newHabit = await client.habits.create(ReclaimHabitCreateMock);
+ 
+    return newHabit;
+}
+
+const updateHabitExample = async (habitId: number) => {
+    console.log("\n\nUpdate a habit =>\n");
+
+    const updatedHabit = await client.habits.update(habitId, ReclaimHabitUpdateMock);
+
+    return updatedHabit;
+}
+
+const searchHabitsExample = async () => {
+    console.log("\n\nSearch habits =>\n");
+
+    const habits = await client.habits.search({ title: ReclaimHabitCreateMock.title });
+
+    return habits;
+}
+
+const getHabitExample = async (habitId: number) => {
+    console.log("\n\nGet a habit =>\n");
+
+    const habit = await client.habits.get(habitId);
+
+    return habit;
+}
+
+const deleteHabitExample = async (habitId: number) => {
+    console.log("\n\nDelete a habit =>\n");
+
+    const deletedHabit = await client.habits.delete(habitId);
+
+    return deletedHabit;
+}
+
 // This is an example of how to use the ReclaimClient class.
 const main = async () => {
     console.clear();
@@ -97,6 +123,17 @@ const main = async () => {
     await getTaskExample(taskId);
     await markTaskAsDoneExample(taskId);
     await deleteTaskExample(taskId);
+
+    const createdHabit = await createHabitExample();
+    const habitId = createdHabit.id;
+
+    await searchHabitsExample();
+
+    await updateHabitExample(habitId);
+
+    await getHabitExample(habitId);
+
+    await deleteHabitExample(habitId);
 }
 
 main();

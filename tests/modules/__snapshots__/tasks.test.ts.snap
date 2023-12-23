@@ -1,0 +1,36 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReclaimTasks should run tasks in sequence 1`] = `
+{
+  "adjusted": false,
+  "alwaysPrivate": true,
+  "atRisk": false,
+  "created": undefined,
+  "deleted": false,
+  "due": "2029-11-21T17:30:00+01:00",
+  "eventCategory": "WORK",
+  "eventSubType": "FOCUS",
+  "id": undefined,
+  "index": 5023.775390625,
+  "maxChunkSize": 8,
+  "minChunkSize": 4,
+  "notes": "",
+  "onDeck": false,
+  "priority": "P2",
+  "readOnlyFields": [],
+  "recurringAssignmentType": "TASK",
+  "snoozeUntil": "2029-11-17T07:00:00+01:00",
+  "sortKey": 27790007,
+  "status": "NEW",
+  "taskSource": {
+    "type": "RECLAIM_APP",
+  },
+  "timeChunksRemaining": 8,
+  "timeChunksRequired": 8,
+  "timeChunksSpent": 0,
+  "timeSchemeId": "989b3027-46c4-4729-bdec-1070fc4d8c0f",
+  "title": "Funky Imitation Game",
+  "type": "TASK",
+  "updated": undefined,
+}
+`;
