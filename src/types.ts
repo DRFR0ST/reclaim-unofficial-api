@@ -1,5 +1,6 @@
 export enum ReclaimEndpoints {
   Tasks = "tasks",
+  Habits = "assist/habits/daily",
   Planner = "planner",
   Users = "users",
   Calendars = "calendars",
@@ -62,6 +63,79 @@ export type ReclaimTaskCreate = Pick<
   | "due"
   | "onDeck"
 >;
+
+/**
+ * An interface representing a Reclaim habit.
+ * Warning: This interface was reverse engineered from the Reclaim API and may be incomplete.
+ */
+export interface ReclaimHabit {
+  id: number;
+  title: string;
+  additionalDescription?: string | null;
+  alwaysPrivate: boolean;
+  eventCategory: string;
+  eventSubType: string;
+  eventColor?: string | "PERSONAL" | "WORK" | null;
+  created: Date;
+  updated: Date;
+  defenseAggression: string | "DEFAULT";
+  recurringAssignmentType: string;
+  invitees: Array<string>;
+  enabled: boolean;
+  durationMin: number;
+  durationMax: number;
+  idealDay?: string | null;
+  idealTime: string;
+  index: number;
+  elevated: boolean;
+  type: string;
+  reservedWords: Array<string>;
+  notification: boolean;
+  timePolicyType: string;
+  oneOffPolicy: {
+    dayHours: Record<WeekDays, {
+      intervals: Array<{ start: string; end: string; duration?: number }>;
+      startOfDay?: string;
+      endOfDay?: string;
+    }>;
+    startOfWeek?: string;
+    endOfWeek?: string;
+  };
+  autoDecline: boolean;
+  adjusted: boolean;
+  snoozeUntil?: string | null;
+  recurrence?: any | null;
+  priority: string | "P0" | "P1" | "P2" | "P3" | "P4";
+  timeSchemeId: string | null;
+  timesPerPeriod: number;
+}
+
+export type ReclaimHabitCreate = Pick<
+  ReclaimHabit,
+  | "additionalDescription"
+  | "alwaysPrivate"
+  | "autoDecline"
+  | "defenseAggression"
+  | "durationMax"
+  | "durationMin"
+  | "enabled"
+  | "eventCategory"
+  | "eventColor"
+  | "idealDay"
+  | "idealTime"
+  | "index"
+  | "invitees"
+  | "notification"
+  | "oneOffPolicy"
+  | "priority"
+  | "recurrence"
+  | "reservedWords"
+  | "snoozeUntil"
+  | "timePolicyType"
+  | "timeSchemeId"
+  | "timesPerPeriod"
+  | "title"
+  >;
 
 /**
  * An interface representing a Reclaim user.
@@ -519,3 +593,5 @@ export interface ReclaimUser {
 export interface ReclaimCalendar {
   id: number;
 }
+
+export type WeekDays = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";

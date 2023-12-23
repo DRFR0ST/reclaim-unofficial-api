@@ -1,6 +1,7 @@
 import { ReclaimTasks } from "./modules/tasks";
 import { ReclaimUsers } from "./modules/users";
 import { ReclaimCalendars } from "./modules/calendars";
+import { ReclaimHabits } from "./modules/habits";
 import { config } from "./config";
 
 /**
@@ -35,6 +36,10 @@ export class ReclaimClient {
    */
   get calendars() {
     return new ReclaimCalendars(this);
+  }
+
+  get habits() {
+    return new ReclaimHabits(this);
   }
 
   /**

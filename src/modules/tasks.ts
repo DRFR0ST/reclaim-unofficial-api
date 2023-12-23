@@ -62,7 +62,7 @@ export class ReclaimTasks {
    * @param task The task to update.
    * @returns {ReclaimTask}
    */
-  async update(id: number, task: Partial<ReclaimTask>): Promise<ReclaimTask> {
+  async update(id: number, task: Partial<ReclaimTaskCreate>): Promise<ReclaimTask> {
     return await this.client._fetcher(`${this.path}/${id}`, {
       method: "PATCH",
       body: JSON.stringify(task),

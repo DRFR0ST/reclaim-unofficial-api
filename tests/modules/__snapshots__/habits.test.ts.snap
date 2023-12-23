@@ -1,0 +1,114 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReclaimHabits should run habits in sequence 1`] = `
+{
+  "additionalDescription": "Hello!",
+  "adjusted": false,
+  "alwaysPrivate": false,
+  "autoDecline": false,
+  "created": undefined,
+  "defenseAggression": "DEFAULT",
+  "durationMax": 120,
+  "durationMin": 15,
+  "elevated": false,
+  "enabled": true,
+  "eventCategory": "WORK",
+  "eventSubType": "FOCUS",
+  "id": undefined,
+  "idealTime": "09:00:00",
+  "index": 18,
+  "invitees": [],
+  "notification": true,
+  "oneOffPolicy": {
+    "dayHours": {
+      "FRIDAY": {
+        "endOfDay": "17:00:00",
+        "intervals": [
+          {
+            "duration": 28800,
+            "end": "17:00:00",
+            "start": "09:00:00",
+          },
+        ],
+        "startOfDay": "09:00:00",
+      },
+      "MONDAY": {
+        "endOfDay": "17:00:00",
+        "intervals": [
+          {
+            "duration": 28800,
+            "end": "17:00:00",
+            "start": "09:00:00",
+          },
+        ],
+        "startOfDay": "09:00:00",
+      },
+      "SATURDAY": {
+        "endOfDay": "17:00:00",
+        "intervals": [
+          {
+            "duration": 28800,
+            "end": "17:00:00",
+            "start": "09:00:00",
+          },
+        ],
+        "startOfDay": "09:00:00",
+      },
+      "SUNDAY": {
+        "endOfDay": "17:00:00",
+        "intervals": [
+          {
+            "duration": 28800,
+            "end": "17:00:00",
+            "start": "09:00:00",
+          },
+        ],
+        "startOfDay": "09:00:00",
+      },
+      "THURSDAY": {
+        "endOfDay": "17:00:00",
+        "intervals": [
+          {
+            "duration": 28800,
+            "end": "17:00:00",
+            "start": "09:00:00",
+          },
+        ],
+        "startOfDay": "09:00:00",
+      },
+      "TUESDAY": {
+        "endOfDay": "17:00:00",
+        "intervals": [
+          {
+            "duration": 28800,
+            "end": "17:00:00",
+            "start": "09:00:00",
+          },
+        ],
+        "startOfDay": "09:00:00",
+      },
+      "WEDNESDAY": {
+        "endOfDay": "17:00:00",
+        "intervals": [
+          {
+            "duration": 28800,
+            "end": "17:00:00",
+            "start": "09:00:00",
+          },
+        ],
+        "startOfDay": "09:00:00",
+      },
+    },
+    "endOfWeek": "SUNDAY",
+    "startOfWeek": "MONDAY",
+  },
+  "priority": "P3",
+  "recurringAssignmentType": "DAILY_HABIT",
+  "reservedWords": [],
+  "snoozeUntil": "2023-12-24T00:00:00+01:00",
+  "timePolicyType": "ONE_OFF",
+  "title": "Positive Habit",
+  "type": "CUSTOM_DAILY",
+  "updated": undefined,
+}
+`;
