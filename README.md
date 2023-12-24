@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/reclaim-unofficial-api.svg)](https://www.npmjs.com/package/reclaim-unofficial-api)
 [![GitHub license](https://img.shields.io/github/license/DRFR0ST/reclaim-unofficial-api)](https://github.com/DRFR0ST/reclaim-unofficial-api/blob/main/LICENSE)
+[![🧪 Tests](https://github.com/DRFR0ST/reclaim-unofficial-api/actions/workflows/test.yml/badge.svg)](https://github.com/DRFR0ST/reclaim-unofficial-api/actions/workflows/test.yml)
 
 Welcome to the unofficial Node.js API for Reclaim.ai! This library is designed to help you interact with the Reclaim.ai API in your Node.js applications. Please note that this library is not officially supported by Reclaim.ai and was reverse engineered for educational purposes.
 
