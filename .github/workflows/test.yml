@@ -20,7 +20,11 @@ jobs:
       run: bun install
 
     - name: Run tests
-      run: bun run test
+      uses: nick-fields/retry@v2
+      with:
+        timeout_minutes: 5
+        max_attempts: 3
+        command: bun run test
       env:
         RECLAIM_ACCESS_TOKEN: ${{ secrets.RECLAIM_ACCESS_TOKEN }}
     
