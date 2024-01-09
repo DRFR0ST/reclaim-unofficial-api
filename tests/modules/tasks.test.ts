@@ -3,6 +3,8 @@ import { ReclaimClient } from "../../src";
 import { ReclaimTasks } from "../../src/modules/tasks";
 import { ReclaimTaskCreateMock, ReclaimTaskUpdateMock } from "../mocks";
 
+const dummyVal = "hidden";
+
 describe("ReclaimTasks", () => {
   let tasks: ReclaimTasks;
 
@@ -18,34 +20,46 @@ describe("ReclaimTasks", () => {
   test("should run tasks in sequence", async () => {
     // Test that tasks is created
     expect(tasks).toBeTruthy();
-  
+
     // Test task creation
     const createResults = await tasks.create(ReclaimTaskCreateMock);
     expect(createResults).toBeTruthy();
     expect(createResults.id).toBeGreaterThan(0);
 
     // Create a snapshot of the createResults object
-    const createSnapshot = { ...createResults, id: undefined, created: undefined, updated: undefined, index: undefined };
+    const createSnapshot = {
+      ...createResults,
+      id: dummyVal,
+      created: dummyVal,
+      updated: dummyVal,
+      index: dummyVal,
+      sortKey: dummyVal,
+    };
     expect(createSnapshot).toMatchSnapshot();
-  
+
     // Test task search
     const searchResults = await tasks.search();
     expect(searchResults).toBeTruthy();
     expect(searchResults.length).toBeGreaterThan(0);
-  
+
     // Test task search by title
-    const filterResults = await tasks.search({ title: ReclaimTaskCreateMock.title });
+    const filterResults = await tasks.search({
+      title: ReclaimTaskCreateMock.title,
+    });
     expect(filterResults).toBeTruthy();
     expect(filterResults.length).toBeGreaterThan(0);
     expect(filterResults[0].id).toBeGreaterThan(0);
     expect(filterResults[0].title).toBe(ReclaimTaskCreateMock.title);
-  
+
     // Test task update
-    const updateResults = await tasks.update(createResults.id, ReclaimTaskUpdateMock);
+    const updateResults = await tasks.update(
+      createResults.id,
+      ReclaimTaskUpdateMock
+    );
     expect(updateResults).toBeTruthy();
     expect(updateResults.id).toBe(updateResults.id);
     expect(updateResults.title).toBe(ReclaimTaskUpdateMock.title);
-  
+
     // Test task get
     const getResults = await tasks.get(createResults.id);
     expect(getResults).toBeTruthy();
@@ -55,7 +69,7 @@ describe("ReclaimTasks", () => {
     const markAsDoneResults = await tasks.markDone(createResults.id);
     expect(markAsDoneResults).toBeTruthy();
     expect(markAsDoneResults.taskOrHabit.id).toBe(createResults.id);
-  
+
     // Test task delete
     const deleteResults = await tasks.delete(createResults.id);
     expect(deleteResults).toBeNull();
