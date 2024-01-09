@@ -14,7 +14,7 @@ First, install the library using npm:
 npm install reclaim-unofficial-api
 ```
 
-Then, you can import the `ReclaimClient`` from the library:
+Then, you can import the `ReclaimClient` from the library:
 
 ```js
 import { ReclaimClient } from 'reclaim-unofficial-api';
