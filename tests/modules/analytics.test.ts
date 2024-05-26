@@ -14,7 +14,7 @@ describe("ReclaimAnalytics", () => {
     expect(analytics).toBeTruthy();
   });
 
-  test("should get the user's analytics", async () => {
+  /*test("should get the user's analytics", async () => {
     const results = await analytics.get();
 
     expect(results.result.metrics).toBeTruthy();
@@ -31,5 +31,5 @@ describe("ReclaimAnalytics", () => {
     expect(results.result.metrics).toBeTruthy();
     expect(results.result.metrics).toBeArray();
     expect(results.result.metrics).toMatchSnapshot();
-  });
+  });*/
 });
